@@ -41,4 +41,52 @@ class Validation extends BaseConfig
     // --------------------------------------------------------------------
     // Rules
     // --------------------------------------------------------------------
+
+    public array $userRules = [
+        'fullname' => [
+            'label' => 'Fullname',
+            'rules' => 'required|min_length[4]',
+        ],
+        'email' => [
+            'label' => 'Email',
+            'rules' => 'required|valid_email',
+        ],
+        'password' => [
+            'label' => 'Password',
+            'rules' => 'required|min_length[8]',
+        ],
+        'confirm_password' => [
+            'label' => 'Confirm password',
+            'rules' => 'required|matches[password]',
+        ]
+    ];
+
+    public array $voterRules = [
+        'fullname' => [
+            'label' => 'Fullname',
+            'rules' => 'required|min_length[4]',
+        ],
+        'email' => [
+            'label' => 'Email',
+            'rules' => 'required|valid_email',
+        ],
+        'phone_number' => [
+            'label' => 'Phone Number',
+            'rules' => 'required|min_length[11]|max_length[12]|regex_match[/^09\d*$/]'
+        ],
+        'gender' => [
+            'label' => 'Gender',
+            'rules' => 'required'
+        ],
+        'address' => [
+            'label' => 'Address',
+            'rules' => 'required|min_length[10]'
+        ],
+        'voter_reg_number' => [
+            'label' => 'Voter registration number',
+            'rules' => 'required'
+        ],
+
+
+    ];
 }

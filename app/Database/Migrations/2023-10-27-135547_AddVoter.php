@@ -39,11 +39,11 @@ class AddVoter extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 250,
             ]
-            ]);
+        ]);
         $this->forge->addKey('Id', true);
         $this->forge->addUniqueKey(['Email', 'VoterRegNumber'], 'KeyName');
 
-        $this->forge->createTable('voter', true);
+        $this->forge->createTable('voters', true);
     }
 
     public function down()

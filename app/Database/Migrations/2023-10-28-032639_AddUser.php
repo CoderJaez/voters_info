@@ -39,7 +39,7 @@ class AddUser extends Migration
 
         $this->forge->addKey('Id', true);
         $this->forge->addUniqueKey('Email', 'Email');
-        $this->forge->createTable('user', true);
+        $this->forge->createTable('users', true);
     }
 
     public function down()

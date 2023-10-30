@@ -2,22 +2,23 @@
 
 namespace App\Models;
 
-use App\Entities\Voter;
 use CodeIgniter\Model;
+use App\Entities\User;
+use Config\Validation;
 
-class VoterModel extends Model
+class UserModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'voters';
+    protected $table            = 'users';
     protected $primaryKey       = 'Id';
     protected $useAutoIncrement = true;
-    protected $returnType       = Voter::class;
+    protected $returnType       = User::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['Fullname', 'Gender', 'Address', 'PhoneNumber', 'Email', 'VoterRegNumber','ImagePath'];
+    protected $allowedFields    = ['Fullname', 'Email', 'Password'];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'CreatedAt';
     protected $updatedField  = 'UpdatedAt';
@@ -39,4 +40,11 @@ class VoterModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getUsers($id = null)
+    {
+        if (is_null($id))
+            return $this->findAll();
+        return $this->where('Id', $id)->first();
+    }
 }

@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
-use App\Entities\Voter;
+use App\Entities\Video;
 use CodeIgniter\Model;
 
-class VoterModel extends Model
+class VideoModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'voters';
+    protected $table            = 'videos';
     protected $primaryKey       = 'Id';
     protected $useAutoIncrement = true;
-    protected $returnType       = Voter::class;
+    protected $returnType       = Video::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['Fullname', 'Gender', 'Address', 'PhoneNumber', 'Email', 'VoterRegNumber','ImagePath'];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

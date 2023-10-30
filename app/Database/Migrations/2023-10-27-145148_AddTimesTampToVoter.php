@@ -9,7 +9,7 @@ class AddTimesTampToVoter extends Migration
 {
     public function up()
     {
-        $this->forge->addColumn('voter',[
+        $this->forge->addColumn('voters', [
             'CreatedAt' => [
                 'type' => 'DATETIME',
                 'default' => new RawSql('CURRENT_TIMESTAMP')
@@ -17,10 +17,9 @@ class AddTimesTampToVoter extends Migration
             'UpdatedAt' => [
                 'type' => 'DATETIME',
                 'default' => new RawSql('CURRENT_TIMESTAMP'),
-                'update'=>true
+                'update' => true
             ]
         ]);
-
     }
 
     public function down()
