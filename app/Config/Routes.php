@@ -35,4 +35,6 @@ $routes->get('/images', [Image::class, 'index']);
 $routes->get('/videos', [Video::class, 'index']);
 $routes->get('/videos/new', [Video::class, 'new']);
 $routes->post('/videos', [Video::class, 'create']);
+$routes->get('/videos/edit', [Video::class, 'edit']);
+$routes->put('/videos', [Video::class, 'update']);
 $routes->delete('/videos/(:num)', [Video::class, 'delete']);

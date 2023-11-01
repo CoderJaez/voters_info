@@ -16,7 +16,7 @@ class AddVideosTable extends Migration
                 'constraint' => 11,
                 'auto_increment' => true,
             ],
-            'Path' => [
+            'VideoPath' => [
                 'type' => 'VARCHAR',
                 'constraint' => 200,
             ],

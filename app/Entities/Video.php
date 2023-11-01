@@ -7,6 +7,6 @@ use CodeIgniter\Entity\Entity;
 class Video extends Entity
 {
     protected $datamap = [];
-    protected $dates   = ['created_at', 'updated_at', 'deleted_at'];
+    protected $dates   = ['CreatedAt', 'UpdatedAt', 'DeletedAt'];
     protected $casts   = [];
 }

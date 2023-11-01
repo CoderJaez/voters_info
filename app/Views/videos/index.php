@@ -19,19 +19,31 @@ use function PHPSTORM_META\type;
         height: 100%;
     }
 
+    li {
+        list-style-type: none;
+        margin: 10px
+    }
+
     /* Style for sidebar */
     .sidebar {
+        height: 500px;
         background-color: #333;
         color: #fff;
         padding: 20px;
+        overflow-y: auto;
     }
 </style>
 <section class="container mt-5">
-
+    <h3 class="title">Videos</h3>
+    <?php if (session()->getFlashdata("success")) : ?>
+        <div class="alert alert-success" role="alert">
+            <?= session()->getFlashdata("success") ?>
+        </div>
+    <?php endif ?>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
         <div class="container">
-            <a class="navbar-brand" href="#">Videos</a>
+            <a href="<?= base_url('videos/new') ?>" class="btn btn-primary">Upload new video</a>
             <!-- Search bar -->
             <form class="row g-2">
                 <div class="col">
@@ -59,11 +71,14 @@ use function PHPSTORM_META\type;
         <!-- Sidebar -->
         <div class="col-md-4">
             <div class="sidebar">
-                <h4>Recommended Videos</h4>
                 <ul>
-                    <li><a href="#">Recommended Video 1</a></li>
-                    <li><a href="#">Recommended Video 2</a></li>
-                    <li><a href="#">Recommended Video 3</a></li>
+                    <?php foreach ($videos as $video) : ?>
+                        <li><a href="#">
+                                <div>
+                                    <img src="<?= base_url("uploads/thumbnails/$video->Thumbnail") ?>" width="100%" height="200px" alt="">
+                                </div>
+                            </a></li>
+                    <?php endforeach; ?>
                 </ul>
             </div>
         </div>

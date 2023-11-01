@@ -23,6 +23,7 @@ class Voter extends BaseController
       ->orLike("Address", "%$search%")
       ->orLike("Email", "%$search%")
       ->findAll();
+
     return view('shared/layouts/Header')
       . view('shared/layouts/Nav')
       . view('voters/index', $this->data)
@@ -51,7 +52,10 @@ class Voter extends BaseController
         'gender' => $this->request->getVar('gender'),
         'phone_number' => $this->request->getVar('phone_number'),
         'address' => $this->request->getVar('address'),
+        'image' => $this->request->getVar('image'),
       ];
+      // var_dump($data);
+      // die();
       if (!$validation->run($data, 'voterRules')) {
         $this->validationErrMessage = $validation->getErrors();
         return $this->new();

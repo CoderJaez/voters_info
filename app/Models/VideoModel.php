@@ -14,7 +14,7 @@ class VideoModel extends Model
     protected $returnType       = Video::class;
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['VideoPath', 'Thumbnail', 'Title', 'Description'];
 
     // Dates
     protected $useTimestamps = false;

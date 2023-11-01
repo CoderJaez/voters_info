@@ -9,7 +9,7 @@ class AddColumnsToVideos extends Migration
     public function up()
     {
         $this->forge->addColumn("videos", [
-            "Thumbnaill" => [
+            "Thumbnail" => [
                 "type" => "VARCHAR",
                 'constraint' => 200,
             ],
