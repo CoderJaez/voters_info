@@ -7,6 +7,7 @@ use App\Controllers\Auth\Authentication;
 use App\Controllers\User;
 use App\Controllers\Video;
 use App\Controllers\Image;
+use App\Filters\Auth;
 
 /**
  * @var RouteCollection $routes
@@ -15,26 +16,26 @@ use App\Controllers\Image;
 $routes->get('/', [Authentication::class, 'index']);
 $routes->post('/auth/login', [Authentication::class, 'login']);
 
-$routes->get('/voters', [Voter::class, 'index']);
-$routes->get('voters/new', [Voter::class, 'new']);
-$routes->get('/voters/edit/(:any)', [Voter::class, 'edit']);
+$routes->get('/voters', [Voter::class, 'index'], ['filter' => Auth::class]);
+$routes->get('voters/new', [Voter::class, 'new'], ['filter' => Auth::class]);
+$routes->get('/voters/edit/(:any)', [Voter::class, 'edit'], ['filter' => Auth::class]);
 $routes->put('/voters/(:num)', [Voter::class, 'update']);
-$routes->delete('/voters/(:num)', [Voter::class, 'delete']);
-$routes->post('/voters', [Voter::class, 'create']);
+$routes->delete('/voters/(:num)', [Voter::class, 'delete'], ['filter' => Auth::class]);
+$routes->post('/voters', [Voter::class, 'create'], ['filter' => Auth::class]);
 
 
-$routes->get('/users', [User::class, 'index']);
-$routes->get('/users/new', [User::class, 'new']);
-$routes->get('/users/edit/(:any)', [User::class, 'edit']);
-$routes->put('/users/(:num)', [User::class, 'update']);
-$routes->delete('/users/(:num)', [User::class, 'delete']);
-$routes->post('/users', [User::class, 'create']);
+$routes->get('/users', [User::class, 'index'], ['filter' => Auth::class]);
+$routes->get('/users/new', [User::class, 'new'], ['filter' => Auth::class]);
+$routes->get('/users/edit/(:any)', [User::class, 'edit'], ['filter' => Auth::class]);
+$routes->put('/users/(:num)', [User::class, 'update'],);
+$routes->delete('/users/(:num)', [User::class, 'delete'], ['filter' => Auth::class]);
+$routes->post('/users', [User::class, 'create'], ['filter' => Auth::class]);
 
-$routes->get('/images', [Image::class, 'index']);
 
-$routes->get('/videos', [Video::class, 'index']);
+$routes->get('/videos', [Video::class, 'index'], ['filter' => Auth::class]);
 $routes->get('/videos/new', [Video::class, 'new']);
-$routes->post('/videos', [Video::class, 'create']);
-$routes->get('/videos/edit', [Video::class, 'edit']);
-$routes->put('/videos', [Video::class, 'update']);
-$routes->delete('/videos/(:num)', [Video::class, 'delete']);
+$routes->get('/videos/watch/(:any)', [Video::class, 'watch'], ['filter' => Auth::class]);
+$routes->get('/videos/edit/(:any)', [Video::class, 'edit'], ['filter' => Auth::class]);
+$routes->post('/videos', [Video::class, 'create'], ['filter' => Auth::class]);
+$routes->put('/videos/(:any)', [Video::class, 'update'], ['filter' => Auth::class]);
+$routes->delete('/videos/(:num)', [Video::class, 'delete'], ['filter' => Auth::class]);

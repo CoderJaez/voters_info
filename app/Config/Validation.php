@@ -95,22 +95,33 @@ class Validation extends BaseConfig
     ];
 
     public array $videoRules = [
-        'Image' => [
+        'image' => [
             'label' => 'Image',
-            'rules' => 'uploaded[Image]|max_size[Image, 2048]|mime_in[Image,image/jpg,image/png,image/jpeg]'
+            'rules' => 'uploaded[image]|max_size[image,2048]|mime_in[image,image/jpg,image/png,image/jpeg]'
         ],
-        'Title' => [
+        'title' => [
             'label' => 'Title',
             'rules' => 'required|min_length[4]'
         ],
-        'Description' => [
+        'desc' => [
             'label' => 'Description',
             'rules' => 'required|min_length[10]'
         ],
-        // 'Video' => [
-        //     'label' => 'Video',
-        //     'rules' => 'uploaded[Video]|mime_in[Video, video/mp4, video/mov, video/obb], max_size[Video, 20480]'
-        // ]
+        'video' => [
+            'label' => 'Video',
+            'rules' => 'uploaded[video]|mime_in[video,video/mp4,video/quicktime,video/ogg,video/webm,video/x-msvideo]|max_size[video,20480]'
+        ]
 
+    ];
+
+    public array $updateVideoRules = [
+        'title' => [
+            'label' => 'Title',
+            'rules' => 'required|min_length[4]'
+        ],
+        'desc' => [
+            'label' => 'Description',
+            'rules' => 'required|min_length[10]'
+        ],
     ];
 }

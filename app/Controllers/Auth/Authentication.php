@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 
 use App\Controllers\BaseController;
+use App\Models\UserModel;
 
 class Authentication extends BaseController
 {
@@ -15,7 +16,11 @@ class Authentication extends BaseController
 
     public function login()
     {
-        return json_encode(['Email' => $this->request->getVar('email'), 'Password' => $this->request->getVar('password')]);
+        $model = new UserModel();
+        $result = $model->where("Email", $this->request->getVar('email'))->first();
+        if (!$result || !password_verify($this->request->getVar('password'), $result->Password)) {
+            return redirect('/')->with('error', 'Invalid email or password.');
+        }
+        return redirect('voters');
     }
 }
-    

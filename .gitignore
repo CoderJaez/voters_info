@@ -128,4 +128,4 @@ nb-configuration.xml
 
 #uploads
 
-/uploads/*
+public/uploads/

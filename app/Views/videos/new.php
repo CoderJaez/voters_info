@@ -3,40 +3,38 @@
         <h3>Upload video</h3>
         <div class="mb-3">
             <label for="title" class="for-label">Title</label>
-            <input type="text" name="title" id="title" value="<?= set_value('title') ?>" class="form-control <?= !$errors['Title'] ?: "is-invalid" ?>">
-            <?php if ($errors['Title']) : ?>
+            <input type="text" name="title" id="title" value="<?= set_value('title') ?>" class="form-control <?= !$errors['title'] ?: "is-invalid" ?>">
+            <?php if ($errors['title']) : ?>
                 <div class="invalid-feedback">
-                    <?= $errors['Title'] ?>
+                    <?= $errors['title'] ?>
                 </div>
             <?php endif ?>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
-            <textarea name="description" id="description" cols="30" rows="5" class="form-control <?= !$errors['Description'] ?: "is-invalid" ?>">
-                <?= set_value("description") ?>
-        </textarea>
+            <textarea name="desc" id="desc" cols="30" rows="5" class="form-control <?= !$errors['desc'] ?: "is-invalid" ?>"><?= set_value("desc") ?></textarea>
 
-            <?php if ($errors['Description']) : ?>
+            <?php if ($errors['desc']) : ?>
                 <div class="invalid-feedback">
-                    <?= $errors['Description'] ?>
+                    <?= $errors['desc'] ?>
                 </div>
             <?php endif ?>
         </div>
         <div class="mb-3">
             <label for="thumbnail" class="form-label">Thumbnail</label>
-            <input type="file" name="image" id="thumbnail" value="<?= set_value('thumbnail') ?>" class="form-control <?= !$errors['Thumbnail'] ?: "is-invalid" ?>">
-            <?php if ($errors['Thumbnail']) : ?>
+            <input type="file" name="image" id="image" value="<?= set_value('thumbnail') ?>" class="form-control <?= !$errors['image'] ?: "is-invalid" ?>">
+            <?php if ($errors['image']) : ?>
                 <div class="invalid-feedback">
-                    <?= $errors['Thumbnail'] ?>
+                    <?= $errors['image'] ?>
                 </div>
             <?php endif ?>
         </div>
         <div class="mb-3">
             <label for="file" class="form-label">Video</label>
-            <input type="file" name="video" id="video" value="<?= set_value("video") ?>" class="form-control <?= !$errors['Video'] ?: "is-invalid" ?>">
-            <?php if ($errors['Video']) : ?>
+            <input type="file" name="video" id="video" value="<?= set_value("video") ?>" class="form-control <?= !$errors['video'] ?: "is-invalid" ?>">
+            <?php if ($errors['video']) : ?>
                 <div class="invalid-feedback">
-                    <?= $errors['Video'] ?>
+                    <?= $errors['video'] ?>
                 </div>
             <?php endif ?>
         </div>

@@ -5,6 +5,7 @@ namespace App\Models;
 use CodeIgniter\Model;
 use App\Entities\User;
 use Config\Validation;
+use Generator;
 
 class UserModel extends Model
 {
