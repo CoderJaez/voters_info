@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="<?= base_url('voters') ?>">Voters</a>
                 </li>
@@ -16,6 +16,10 @@
                     <a class="nav-link " href="<?= base_url('users') ?>">Users</a>
                 </li>
             </ul>
+            <div class="d-flex">
+                <span class="fw-bold text-primary pe-3"><?= session()->get("fullname") ?></span>
+                <a class="nav-link pe-3" href="<?= base_url("auth/logout") ?>">Logout</a>
+            </div>
         </div>
     </div>
 </nav>

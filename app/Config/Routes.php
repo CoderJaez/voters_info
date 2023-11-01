@@ -15,6 +15,7 @@ use App\Filters\Auth;
 // $routes->get('/', [Home::class, 'index']);
 $routes->get('/', [Authentication::class, 'index']);
 $routes->post('/auth/login', [Authentication::class, 'login']);
+$routes->get('/auth/logout', [Authentication::class, 'logout']);
 
 $routes->get('/voters', [Voter::class, 'index'], ['filter' => Auth::class]);
 $routes->get('voters/new', [Voter::class, 'new'], ['filter' => Auth::class]);
