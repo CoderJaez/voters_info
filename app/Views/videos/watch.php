@@ -69,7 +69,7 @@
                         <li>
                             <div class="d-flex justify-content">
                                 <a href="<?= base_url("videos/watch/$video->Id") ?>">
-                                    <img src="<?= base_url("uploads/thumbnails/$video->Thumbnail") ?>" width="100px" height="150px" alt="">
+                                    <img src="<?= base_url("uploads/thumbnails/$video->Thumbnail") ?>" width="100px" height="100px" alt="">
                                 </a><span class="p-3 fw-bold text-md-end text-wrap"><?= $video->Title ?></span>
                             </div>
                         </li>
